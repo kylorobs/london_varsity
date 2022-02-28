@@ -7,10 +7,9 @@ import Upcoming from './Upcoming';
 
 function App() {
   return (
-    <>
+    <div data-theme="kclsu">
       <Hero />
-
-      {/* <Stats /> */}
+      <h2>Keep Track</h2>
       <TextContainer>
         <Progress />
         <div className="flex w-full">
@@ -18,7 +17,7 @@ function App() {
           <Tables />
         </div>
       </TextContainer>
-    </>
+    </div>
   );
 }
 

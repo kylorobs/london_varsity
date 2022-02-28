@@ -38,6 +38,9 @@ const Tables = () => (
           </table>
         </div>
       </tab-area>
+
+      {/* <tab-title>The History</tab-title>
+      <tab-area></tab-area> */}
     </kclsu-tabs>
   </div>
 );
