@@ -3,11 +3,6 @@ import Carousel from './Carousel';
 const Hero = () => (
   <div className="hero min-h-screen max-w-4xl m-auto">
     <div className="flex-col hero-content lg:flex-row-reverse">
-      {/* <img
-        alt="sports"
-        src="https://res.cloudinary.com/the-great-sync/image/upload/c_fit,f_auto,fl_any_format,h_600,w_300/v1645961553/pexels-pixabay-163452_3_fazxmr.jpg"
-        className="max-w-sm rounded-lg shadow-2xl"
-      /> */}
       <Carousel />
       <div>
         <h1 className="text-5xl font-bold">London Varsity Series</h1>

@@ -1,6 +1,5 @@
 import Hero from './Hero';
 import Progress from './Progress';
-import Stats from './Stats';
 import Tables from './Tables';
 import TextContainer from './TextContainer';
 import Upcoming from './Upcoming';
