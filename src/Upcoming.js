@@ -3,6 +3,13 @@ import ScrollIntoView from './ScrollIntoView';
 
 const Upcoming = () => {
   const [events, setEvents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const inputted = e.target.value;
+    setSearchTerm(inputted);
+  };
 
   useEffect(() => {
     fetch(
@@ -20,7 +27,12 @@ const Upcoming = () => {
       });
   }, []);
 
-  const evts = events.map((evt) => (
+  console.log(searchTerm);
+  const filtered =
+    !searchTerm || searchTerm === ''
+      ? events
+      : events.filter((obj) => obj.Title.includes(searchTerm));
+  const evts = filtered.map((evt) => (
     <ScrollIntoView>
       <label-card
         cardtitle={evt.Title}
@@ -39,6 +51,7 @@ const Upcoming = () => {
       <h2> Upcoming </h2>
       <div className="flex flex-col content-center justify-center">
         <input
+          onChange={handleChange}
           type="text"
           placeholder="Find a match"
           className="input input-bordered input-accent w-full max-w-xs"

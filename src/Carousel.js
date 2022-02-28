@@ -1,5 +1,5 @@
 const Carousel = () => (
-  <div className="max-w-md p-4 space-x-4 carousel carousel-center bg-purple rounded-box">
+  <div className="max-w-md p-4 space-x-4 carousel carousel-center bg-white rounded-box">
     <div className="carousel-item">
       <img
         alt=""
