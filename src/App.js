@@ -8,7 +8,9 @@ function App() {
   return (
     <div data-theme="kclsu">
       <Hero />
-      <h2>Keep Track</h2>
+      <h2 className="text-center">
+        One of the biggest events in the calendar!
+      </h2>
       <TextContainer>
         <Progress />
         <div className="flex w-full">

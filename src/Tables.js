@@ -2,11 +2,11 @@ import Upcoming from './Upcoming';
 
 const Tables = () => (
   <div className="w-9/12 p-8">
-    <kclsu-tabs variant="secondary">
-      <tab-title name="upcoming">Upcoming</tab-title>
+    <kclsu-tabs variant="primary">
+      {/* <tab-title name="upcoming">Upcoming</tab-title>
       <tab-area name="upcoming">
         <Upcoming />
-      </tab-area>
+      </tab-area> */}
 
       <tab-title active="2021" name="2021">
         Results

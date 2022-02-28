@@ -2,7 +2,7 @@ import Carousel from './Carousel';
 
 const Hero = () => (
   <div className="hero min-h-screen max-w-4xl m-auto">
-    <div className="flex-col hero-content lg:flex-row-reverse">
+    <div className="flex-col hero-content lg:flex-row-reverse mb-8">
       <Carousel />
       <div>
         <h1 className="text-5xl font-bold">London Varsity Series</h1>
