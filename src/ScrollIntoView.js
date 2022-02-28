@@ -4,7 +4,7 @@ import 'animate.css/animate.min.css';
 import classes from './ScrollIntoView.module.css';
 
 const ScrollIntoView = ({ children }) => (
-  <ScrollAnimation animateIn={classes.Slide} animateOnce offset="110">
+  <ScrollAnimation animateIn={classes.Slide} animateOnce>
     {children}
   </ScrollAnimation>
 );

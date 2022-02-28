@@ -6,7 +6,7 @@ const Progress = () => (
       <div className="w-100 mb-4 flex content-center h-24">
         <div className="shadow stats w-40 mr-4">
           <div className="stat">
-            <div className="stat-figure text-primary">🏆</div>
+            <div className="stat-figure text-primary text-2xl">🏆</div>
             <div className="stat-title text-kings font-bold">Kings</div>
             <div className="stat-value text-kings ">0</div>
           </div>
@@ -22,7 +22,7 @@ const Progress = () => (
       <div className="w-100 mb-4 flex content-center h-24">
         <div className="shadow stats w-40 mr-4">
           <div className="stat">
-            <div className="stat-figure text-primary">🏆</div>
+            <div className="stat-figure text-primary font text-2xl">🏆</div>
             <div className="stat-title text-ucl font-bold">UCL</div>
             <div className="stat-value text-ucl">0</div>
           </div>

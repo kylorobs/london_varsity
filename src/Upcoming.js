@@ -47,17 +47,19 @@ const Upcoming = () => {
   ));
 
   return (
-    <div className="my-16 mx-8">
-      <h2> Upcoming </h2>
-      <div className="flex flex-col content-center justify-center">
+    <div className="flex flex-col justify-start w-full">
+      <div
+        className="flex justify-center w-full mb-8 min-w-280"
+        style={{ marginTop: '4rem' }}
+      >
         <input
           onChange={handleChange}
           type="text"
           placeholder="Find a match"
-          className="input input-bordered input-accent w-full max-w-xs"
+          className="input input-bordered input-primary w-2/3"
         />
-        {evts}
       </div>
+      {evts}
     </div>
   );
 };

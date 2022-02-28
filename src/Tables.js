@@ -1,23 +1,21 @@
 import Upcoming from './Upcoming';
 
 const Tables = () => (
-  <div className="w-9/12 p-8">
-    <kclsu-tabs variant="primary">
-      {/* <tab-title name="upcoming">Upcoming</tab-title>
+  <div className="w-9/12">
+    <kclsu-tabs variant="primary" style={{ margin: 0 }}>
+      <tab-title name="upcoming">Upcoming</tab-title>
       <tab-area name="upcoming">
         <Upcoming />
-      </tab-area> */}
-
+      </tab-area>
       <tab-title active="2021" name="2021">
         Results
       </tab-title>
       <tab-area active name="2021">
         <kclsu-countdown
-          width="300px"
-          msgbg
+          width="280px"
           margin="0.5em auto"
-          text="1- 30 March 2021"
-          date="February 28, 2022, 10:00:00"
+          text="17-21 March 2022"
+          date="March 17, 2022, 10:00:00"
         />
         <div className="overflow-x-auto mt-8">
           <table className="table table-compact w-full">
@@ -38,9 +36,6 @@ const Tables = () => (
           </table>
         </div>
       </tab-area>
-
-      {/* <tab-title>The History</tab-title>
-      <tab-area></tab-area> */}
     </kclsu-tabs>
   </div>
 );
