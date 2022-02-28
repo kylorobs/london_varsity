@@ -1,12 +1,17 @@
+import PropTypes from 'prop-types';
 import Upcoming from './Upcoming';
 
-const Tables = () => (
-  <div className="w-9/12">
+const Tables = ({ isDesktop }) => (
+  <div className={`${isDesktop ? 'w-9/12' : 'w-full'}`}>
     <kclsu-tabs variant="primary" style={{ margin: 0 }}>
-      <tab-title name="upcoming">Upcoming</tab-title>
-      <tab-area name="upcoming">
-        <Upcoming />
-      </tab-area>
+      {!isDesktop && (
+        <>
+          <tab-title name="upcoming">Upcoming</tab-title>
+          <tab-area name="upcoming">
+            <Upcoming />
+          </tab-area>
+        </>
+      )}
       <tab-title active="2021" name="2021">
         Results
       </tab-title>
@@ -39,5 +44,9 @@ const Tables = () => (
     </kclsu-tabs>
   </div>
 );
+
+Tables.propTypes = {
+  isDesktop: PropTypes.bool.isRequired,
+};
 
 export default Tables;
