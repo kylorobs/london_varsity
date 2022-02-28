@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ScrollIntoView from './ScrollIntoView';
 
 const Upcoming = () => {
   const [events, setEvents] = useState([]);
@@ -20,15 +21,17 @@ const Upcoming = () => {
   }, []);
 
   const evts = events.map((evt) => (
-    <label-card
-      cardtitle={evt.Title}
-      image={evt.ImageUrl}
-      link={evt.Url}
-      text="The Date goes here"
-      margin="15px"
-      cardheight="110px"
-      cardwidth="100%"
-    />
+    <ScrollIntoView>
+      <label-card
+        cardtitle={evt.Title}
+        image={evt.ImageUrl}
+        link={evt.Url}
+        text="The Date goes here"
+        margin="15px"
+        cardheight="110px"
+        cardwidth="100%"
+      />
+    </ScrollIntoView>
   ));
 
   return (
