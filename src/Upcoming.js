@@ -12,9 +12,16 @@ const Upcoming = ({ isDesktop }) => {
     setSearchTerm(inputted);
   };
 
+  function addZero(num) {
+    if (num > 9) return `${num}`;
+    return `0${num}`;
+  }
+
   function getDateTime(str) {
     const date = new Date(str);
-    return `${date.toDateString()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    return `${date.toDateString()} ${addZero(date.getHours())}:${addZero(
+      date.getMinutes()
+    )}`;
   }
 
   useEffect(() => {
@@ -34,7 +41,6 @@ const Upcoming = ({ isDesktop }) => {
       });
   }, []);
 
-  console.log(searchTerm);
   const filtered =
     !searchTerm || searchTerm === ''
       ? events

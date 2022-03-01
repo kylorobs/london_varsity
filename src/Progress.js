@@ -13,9 +13,10 @@ const Progress = () => (
           </div>
         </div>
         <progress
-          className="progress progress-secondary h-4 w-100 self-center after:content-[🏆]"
+          className="progress progress-secondary h-4 w-100 self-center"
           value="10"
           max="100"
+          style={{ marginBottom: 0 }}
         />
         <div className="self-center text-3xl">🏆</div>
       </div>
@@ -33,6 +34,7 @@ const Progress = () => (
           className="progress progress-warning h-4 w-100 self-center"
           value="10"
           max="100"
+          style={{ marginBottom: 0 }}
         />
         <div className="self-center text-3xl">🏆</div>
       </div>

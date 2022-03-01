@@ -1,11 +1,11 @@
 import Carousel from './Carousel';
 
 const Hero = () => (
-  <div className="hero min-h-screen max-w-4xl m-auto">
+  <div className="hero max-w-4xl m-auto" style={{ minHeight: '80vh' }}>
     <div className="flex-col hero-content lg:flex-row-reverse mb-8">
       <Carousel />
       <div>
-        <h1 className="text-5xl font-bold">London Varsity Series</h1>
+        <h1 className="text-5xl font-bold">London Varsity 2022</h1>
         <p className="py-6">
           Sports teams from King’s College London Students’ Union (KCLSU) and
           University College London Union (UCLU) will compete in the great
