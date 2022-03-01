@@ -17,7 +17,7 @@ const Hero = () => (
         </p>
 
         <span className="bg-purple font-bold text-white m-auto text-xl font-medium px-2.5 py-0.5 rounded">
-          17-21 March 2021
+          17-21 March 2022
         </span>
       </div>
     </div>
