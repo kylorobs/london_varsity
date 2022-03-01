@@ -9,7 +9,7 @@ const Hero = () => (
         <p className="py-6">
           Sports teams from King’s College London Students’ Union (KCLSU) and
           University College London Union (UCLU) will compete in the great
-          tradition that is the London Varsity Series.
+          tradition that is London Varsity.
         </p>
         <p className="mb-6">
           Historically a friendly rugby game between King’s and UCL, Varsity has
