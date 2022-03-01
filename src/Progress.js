@@ -6,9 +6,6 @@ const Progress = () => (
       <div className="w-100 mb-4 flex content-center h-24">
         <div className="shadow stats w-40 mr-4">
           <div className="stat">
-            <div className="stat-figure text-primary text-2xl hidden sm:block">
-              🏆
-            </div>
             <div className="stat-title text-center text-kings font-bold">
               Kings
             </div>
@@ -16,19 +13,17 @@ const Progress = () => (
           </div>
         </div>
         <progress
-          className="progress progress-secondary h-4 w-100 self-center"
+          className="progress progress-secondary h-4 w-100 self-center after:content-[🏆]"
           value="10"
           max="100"
         />
+        <div className="self-center text-3xl">🏆</div>
       </div>
     </ScrollIntoView>
     <ScrollIntoView>
       <div className="w-100 mb-4 flex content-center h-24">
         <div className="shadow stats w-40 mr-4">
           <div className="stat">
-            <div className="stat-figure text-primary font text-2xl hidden sm:block">
-              🏆
-            </div>
             <div className="stat-title text-ucl font-bold text-center">UCL</div>
             <div className="stat-value text-center text-ucl">0</div>
           </div>
@@ -39,6 +34,7 @@ const Progress = () => (
           value="10"
           max="100"
         />
+        <div className="self-center text-3xl">🏆</div>
       </div>
     </ScrollIntoView>
   </div>

@@ -18,8 +18,8 @@ function App() {
   return (
     <div data-theme="kclsu">
       <Hero />
-      <h2 className="text-center"> Results and Upcoming Matches</h2>
       <TextContainer>
+        <h2 className="text-center"> Results and Upcoming Matches</h2>
         <Progress />
         <div className="flex w-full mt-16">
           {isDesktop && <Upcoming isDesktop={isDesktop} />}

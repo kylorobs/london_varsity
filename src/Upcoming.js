@@ -12,6 +12,11 @@ const Upcoming = ({ isDesktop }) => {
     setSearchTerm(inputted);
   };
 
+  function getDateTime(str) {
+    const date = new Date(str);
+    return `${date.toDateString()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  }
+
   useEffect(() => {
     fetch(
       `https://www.kclsu.org/svc/feeds/events/6013?subtree=true&types=StudentRun`
@@ -24,6 +29,7 @@ const Upcoming = ({ isDesktop }) => {
         setEvents(data);
       })
       .catch((er) => {
+        console.log(er);
         throw new Error(er);
       });
   }, []);
@@ -34,12 +40,12 @@ const Upcoming = ({ isDesktop }) => {
       ? events
       : events.filter((obj) => obj.Title.includes(searchTerm));
   const evts = filtered.map((evt) => (
-    <ScrollIntoView>
+    <ScrollIntoView key={evt.Id}>
       <label-card
         cardtitle={evt.Title}
         image={evt.ImageUrl}
         link={evt.Url}
-        text="The Date goes here"
+        text={getDateTime(evt.StartDate)}
         margin="15px 0"
         cardheight={isDesktop ? '130px' : 'auto'}
       />
@@ -49,9 +55,12 @@ const Upcoming = ({ isDesktop }) => {
   return (
     <div className="flex flex-col justify-start w-full">
       <div
-        className="flex justify-center w-full mb-8 min-w-280"
+        className="flex flex-col items-center  w-full mb-8 min-w-280"
         style={{ marginTop: isDesktop ? '4rem' : '1rem' }}
       >
+        <label htmlFor="searchMatchws" className="label">
+          <span className="label-text">Search upcoming games</span>
+        </label>
         <input
           onChange={handleChange}
           type="text"
