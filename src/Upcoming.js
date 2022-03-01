@@ -26,7 +26,7 @@ const Upcoming = ({ isDesktop }) => {
 
   useEffect(() => {
     fetch(
-      `https://www.kclsu.org/svc/feeds/events/6013?subtree=true&types=StudentRun`
+      `https://www.kclsu.org/svc/feeds/events/6013?subtree=true&types=varsity`
     )
       .then((res) => {
         if (!res.ok) throw new Error(res.statusText);
