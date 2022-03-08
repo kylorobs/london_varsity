@@ -13,8 +13,8 @@ module.exports = {
       'gray-dark': '#273444',
       gray: '#8492a6',
       'gray-light': '#d3dce6',
-      ucl: '#e1251c',
-      kings: '#6a4092',
+      kings: '#e1251c',
+      ucl: '#6a4092',
       black: 'black',
     },
     fontFamily: {
@@ -29,7 +29,7 @@ module.exports = {
     themes: [
       {
         kclsu: {
-          primary: '#15847F',
+          primary: '#e1251c',
           navy: '#0C2F46',
           secondary: '#502669',
           accent: '#F8860D',
@@ -39,8 +39,8 @@ module.exports = {
           success: '#36D399',
           warning: '#E1251c',
           error: '#F87272',
-          ucl: '#E1251c',
-          kings: '#6a4092',
+          kings: '#E1251c',
+          ucl: '#6a4092',
         },
       },
     ],

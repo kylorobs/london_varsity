@@ -5,7 +5,7 @@ const Progress = () => (
     <ScrollIntoView>
       <div className="w-100 mb-4 flex content-center h-24">
         <div className="shadow stats w-40 mr-4">
-          <div className="stat">
+          <div className="stat overflow-hidden">
             <div className="stat-title text-center text-kings font-bold">
               Kings
             </div>
@@ -13,7 +13,7 @@ const Progress = () => (
           </div>
         </div>
         <progress
-          className="progress progress-secondary h-4 w-100 self-center"
+          className="progress progress-warning h-4 w-100 self-center"
           value="10"
           max="100"
           style={{ marginBottom: 0 }}
@@ -31,7 +31,7 @@ const Progress = () => (
         </div>
 
         <progress
-          className="progress progress-warning h-4 w-100 self-center"
+          className="progress progress-secondary h-4 w-100 self-center"
           value="10"
           max="100"
           style={{ marginBottom: 0 }}

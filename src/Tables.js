@@ -6,15 +6,15 @@ const Tables = ({ isDesktop }) => (
     <kclsu-tabs variant="primary" style={{ margin: 0 }}>
       {!isDesktop && (
         <>
-          <tab-title name="upcoming">Upcoming</tab-title>
-          <tab-area name="upcoming">
+          <tab-title active="upcoming" name="upcoming">
+            Upcoming
+          </tab-title>
+          <tab-area active name="upcoming">
             <Upcoming />
           </tab-area>
         </>
       )}
-      <tab-title active="2021" name="2021">
-        Results
-      </tab-title>
+      <tab-title name="2021">Results</tab-title>
       <tab-area active name="2021">
         <kclsu-countdown
           width="280px"
