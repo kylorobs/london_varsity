@@ -25,17 +25,53 @@ const Carousel = () => {
     setElements(imgs);
   }, []);
 
+  function shiftRight() {
+    try {
+      if (!elements[activeIndex + 1] === undefined) throw new Error();
+      elements[activeIndex + 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+      setActiveIndex(activeIndex + 1);
+    } catch (e) {
+      console.log('End of carousel');
+      // DO NOTHING
+    }
+  }
+
+  function shiftLeft() {
+    try {
+      if (!elements[activeIndex - 1] === undefined) throw new Error();
+      elements[activeIndex - 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+      setActiveIndex(activeIndex - 1);
+    } catch (e) {
+      console.log('ERROR');
+      // DO NOTHING
+    }
+  }
+
   return (
-    <div
-      ref={(el) => (carouselEl = el)}
-      className="max-w-md p-4 space-x-4 carousel carousel-center bg-white rounded-box"
-    >
-      {imageSrcs.map((src) => (
-        <div className="carousel-item">
-          <img alt="" src={src} className="rounded-box" />
-        </div>
-      ))}
-    </div>
+    <>
+      <div
+        ref={(el) => (carouselEl = el)}
+        className="max-w-md p-4 space-x-4 carousel carousel-center bg-white rounded-box"
+      >
+        {imageSrcs.map((src) => (
+          <div className="carousel-item">
+            <img alt="" src={src} className="rounded-box" />
+          </div>
+        ))}
+      </div>
+      <button type="button" onClick={shiftRight}>
+        Right
+      </button>
+      <button type="button" onClick={shiftLeft}>
+        Left
+      </button>
+    </>
   );
 };
 
