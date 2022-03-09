@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import ScrollIntoView from './ScrollIntoView';
 
-const Upcoming = ({ isDesktop }) => {
-  const [events, setEvents] = useState([]);
+const Upcoming = ({ isDesktop, events }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (e) => {
@@ -23,32 +22,6 @@ const Upcoming = ({ isDesktop }) => {
       date.getMinutes()
     )}`;
   }
-
-  useEffect(() => {
-    fetch(
-      `https://www.kclsu.org/svc/feeds/events/6013?subtree=true&types=varsity`
-    )
-      .then((res) => {
-        if (!res.ok) throw new Error(res.statusText);
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        const newData = data.map((node) => ({
-          Title: node.Title,
-          Id: node.Id,
-          StartDate: node.StartDate,
-          Ucl: null,
-          Kings: null,
-        }));
-        console.log(newData);
-        setEvents(data);
-      })
-      .catch((er) => {
-        console.log(er);
-        throw new Error(er);
-      });
-  }, []);
 
   const filtered =
     !searchTerm || searchTerm === ''
@@ -92,6 +65,14 @@ const Upcoming = ({ isDesktop }) => {
 
 Upcoming.propTypes = {
   isDesktop: PropTypes.bool.isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      Title: PropTypes.string,
+      ImageUrl: PropTypes.string,
+      Url: PropTypes.string,
+      StartDate: PropTypes.date,
+    })
+  ),
 };
 
 export default Upcoming;

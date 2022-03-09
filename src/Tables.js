@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Upcoming from './Upcoming';
 
-const Tables = ({ isDesktop }) => (
+const Tables = ({ isDesktop, results }) => (
   <div className={`${isDesktop ? 'w-9/12' : 'w-full'}`}>
     <kclsu-tabs variant="primary" style={{ margin: 0 }}>
       {!isDesktop && (
@@ -32,11 +32,31 @@ const Tables = ({ isDesktop }) => (
               </tr>
             </thead>
             <tbody>
-              <tr>
+              {results.map((match) => (
+                <tr>
+                  <th> {match.Title} </th>
+                  <td
+                    className={`${
+                      match.Kings > match.Ucl && 'bg-red-400'
+                    } text-center`}
+                  >
+                    {match.Kings}
+                  </td>
+                  <td
+                    className={`${
+                      match.Kings < match.Ucl && 'bg-purple-400'
+                    } text-center`}
+                  >
+                    {match.Ucl}
+                  </td>
+                </tr>
+              ))}
+
+              {/* <tr>
                 <th> - </th>
                 <td> - </td>
                 <td> - </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
@@ -47,6 +67,17 @@ const Tables = ({ isDesktop }) => (
 
 Tables.propTypes = {
   isDesktop: PropTypes.bool.isRequired,
+  results: PropTypes.arrayOf(
+    PropTypes.shape({
+      Title: PropTypes.string,
+      ImageUrl: PropTypes.string,
+      Url: PropTypes.string,
+      StartDate: PropTypes.date,
+      Id: PropTypes.string,
+      Ucl: PropTypes.number,
+      Kings: PropTypes.number,
+    })
+  ),
 };
 
 export default Tables;
