@@ -33,6 +33,15 @@ const Upcoming = ({ isDesktop }) => {
         return res.json();
       })
       .then((data) => {
+        // console.log(data);
+        const newData = data.map((node) => ({
+          Title: node.Title,
+          Id: node.Id,
+          StartDate: node.StartDate,
+          Ucl: null,
+          Kings: null,
+        }));
+        console.log(newData);
         setEvents(data);
       })
       .catch((er) => {
