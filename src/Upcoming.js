@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import ScrollIntoView from './ScrollIntoView';
 
-const Upcoming = ({ isDesktop, events }) => {
+const Upcoming = ({ isDesktop, events = [] }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (e) => {
@@ -23,22 +23,28 @@ const Upcoming = ({ isDesktop, events }) => {
     )}`;
   }
 
-  const filtered =
-    !searchTerm || searchTerm === ''
-      ? events
-      : events.filter((obj) => obj.Title.includes(searchTerm));
-  const evts = filtered.map((evt) => (
-    <ScrollIntoView key={evt.Id}>
-      <label-card
-        cardtitle={evt.Title}
-        image={evt.ImageUrl}
-        link={evt.Url}
-        text={getDateTime(evt.StartDate)}
-        margin="15px 0"
-        cardheight={isDesktop ? '130px' : 'auto'}
-      />
-    </ScrollIntoView>
-  ));
+  let evts = [];
+  if (events.length > 0) {
+    const filtered =
+      !searchTerm || searchTerm === ''
+        ? events
+        : events.filter((obj) => obj.Title.includes(searchTerm));
+
+    evts = filtered.map((evt) => (
+      <ScrollIntoView key={evt.Id}>
+        <label-card
+          cardtitle={evt.Title}
+          withleftborder={false}
+          // boxshadow="rgb(225 37 27 / 53%) 3px 3px 1px 0px"
+          image={evt.ImageUrl}
+          link={evt.Url}
+          text={getDateTime(evt.StartDate)}
+          margin="15px 0"
+          cardheight={isDesktop ? '130px' : 'auto'}
+        />
+      </ScrollIntoView>
+    ));
+  }
 
   return (
     <div className="flex flex-col justify-start w-full">

@@ -58,8 +58,8 @@ const Carousel = () => {
         ref={(el) => (carouselEl = el)}
         className="max-w-7xl p-4 space-x-4 carousel carousel-center bg-white rounded-box relative"
       >
-        {imageSrcs.map((src) => (
-          <div className="carousel-item">
+        {imageSrcs.map((src, i) => (
+          <div key={i} className="carousel-item">
             <img alt="" src={src} className="rounded-box" />
           </div>
         ))}

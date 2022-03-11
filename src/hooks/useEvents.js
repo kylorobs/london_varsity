@@ -16,17 +16,6 @@ const useEvents = () => {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);
-        const newData = data.map((node) => ({
-          '-Mds': {
-            Title: node.Title,
-            Id: node.Id,
-            StartDate: node.StartDate,
-            Ucl: null,
-            Kings: null,
-          },
-        }));
-        console.log(newData);
         setLoading(false);
         setEvents(data);
       })
@@ -35,6 +24,7 @@ const useEvents = () => {
         console.log(er);
         setError(true);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

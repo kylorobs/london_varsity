@@ -10,21 +10,25 @@ import Upcoming from './Upcoming';
 function App() {
   const windowSize = window.matchMedia('(min-width: 800px)');
   const [isDesktop, setIsDesktop] = useState(windowSize.matches);
-  const { events, isLoading, error } = useEvents();
+  const { events } = useEvents();
   const { scoreTally, results } = useResults();
 
   useEffect(() => {
     windowSize.addEventListener('change', (e) => {
+      console.log('CHANGING SIZE');
+      console.log(e.matches);
       setIsDesktop(e.matches);
     });
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  const { kings, ucl } = scoreTally;
   return (
     <div data-theme="kclsu">
       <Hero />
       <TextContainer>
         <h2 className="text-center"> Results and Upcoming Matches</h2>
-        <Progress scoreTally={scoreTally} />
+        <Progress kingsScore={kings} uclScore={ucl} target={19} />
         <div className="flex w-full mt-16">
           {isDesktop && <Upcoming isDesktop={isDesktop} events={events} />}
           <Tables isDesktop={isDesktop} events={events} results={results} />
