@@ -3,6 +3,8 @@ import Results from './Results';
 import Upcoming from './Upcoming';
 
 const Tables = ({ isDesktop, results, events }) => {
+  const showCountDown = results.length === 0;
+
   if (!isDesktop)
     return (
       <div className="w-full">
@@ -15,12 +17,14 @@ const Tables = ({ isDesktop, results, events }) => {
           </tab-area>
           <tab-title name="2021">Results</tab-title>
           <tab-area name="2021">
-            {/* <kclsu-countdown
-              width="280px"
-              margin="0.5em auto"
-              text="17-21 March 2022"
-              date="March 17, 2022, 10:00:00"
-            /> */}
+            {showCountDown && (
+              <kclsu-countdown
+                width="280px"
+                margin="0.5em auto"
+                text="17-21 March 2022"
+                date="March 17, 2022, 22:00:00"
+              />
+            )}
             <Results results={results} />
           </tab-area>
         </kclsu-tabs>
@@ -33,12 +37,14 @@ const Tables = ({ isDesktop, results, events }) => {
           Results
         </tab-title>
         <tab-area active name="2021">
-          {/* <kclsu-countdown
-            width="280px"
-            margin="0.5em auto"
-            text="17-21 March 2022"
-            date="March 17, 2022, 10:00:00"
-          /> */}
+          {showCountDown && (
+            <kclsu-countdown
+              width="280px"
+              margin="0.5em auto"
+              text="17-21 March 2022"
+              date="March 17, 2022, 22:00:00"
+            />
+          )}
           <Results results={results} />
         </tab-area>
       </kclsu-tabs>
@@ -53,10 +59,10 @@ Tables.propTypes = {
       Title: PropTypes.string,
       ImageUrl: PropTypes.string,
       Url: PropTypes.string,
-      StartDate: PropTypes.date,
+      StartDate: PropTypes.string,
       Id: PropTypes.string,
-      Ucl: PropTypes.number,
-      Kings: PropTypes.number,
+      Ucl: PropTypes.string,
+      Kings: PropTypes.string,
     })
   ),
   events: PropTypes.arrayOf(
@@ -64,7 +70,7 @@ Tables.propTypes = {
       Title: PropTypes.string,
       ImageUrl: PropTypes.string,
       Url: PropTypes.string,
-      StartDate: PropTypes.date,
+      StartDate: PropTypes.string,
     })
   ),
 };

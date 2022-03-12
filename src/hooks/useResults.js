@@ -19,10 +19,6 @@ const useResults = () => {
     matches.forEach((result) => {
       if (+result.Kings > +result.Ucl) scores.kings += 1;
       else if (+result.Kings < +result.Ucl) scores.ucl += 1;
-      // else { // GET A POINT IF A DRAW
-      //   scores.kings += 1;
-      //   scores.ucl += 1;
-      // }
     });
     setScoreTally(scores);
   }
@@ -33,6 +29,10 @@ const useResults = () => {
       ar.push(data[node]);
     }
     return ar;
+  }
+
+  function sortByDate(ar) {
+    return ar.sort((a, b) => new Date(a.StartDate) - new Date(b.StartDate));
   }
 
   useEffect(() => {
@@ -49,8 +49,9 @@ const useResults = () => {
           (result) => result.Ucl === '0' || +result.Ucl > 0 // Only need one of the scores to be true
         );
         if (filteredResults.length > 0) setScores(filteredResults);
+        const sortedByDateScores = sortByDate(filteredResults);
         setLoading(false);
-        setResults(filteredResults);
+        setResults(sortedByDateScores);
       })
       .catch((er) => {
         console.log(er);
@@ -59,13 +60,6 @@ const useResults = () => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log({
-    scoreTally,
-    results,
-    isLoading,
-    error,
-  });
 
   return {
     scoreTally,

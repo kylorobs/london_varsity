@@ -76,7 +76,7 @@ Upcoming.propTypes = {
       Title: PropTypes.string,
       ImageUrl: PropTypes.string,
       Url: PropTypes.string,
-      StartDate: PropTypes.date,
+      StartDate: PropTypes.string,
     })
   ),
 };

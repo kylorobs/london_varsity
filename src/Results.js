@@ -15,7 +15,7 @@ const Results = ({ results }) => {
       const kingsWin = +match.Kings > +match.Ucl;
       const uclWin = +match.Kings < +match.Ucl;
       return (
-        <tr className="mb-10">
+        <tr className="mb-10" key={match.Id}>
           <td
             className={`${uclWin && '!bg-purple text-white'} ${
               kingsWin && '!bg-kings text-white'
@@ -57,10 +57,10 @@ Results.propTypes = {
       Title: PropTypes.string,
       ImageUrl: PropTypes.string,
       Url: PropTypes.string,
-      StartDate: PropTypes.date,
+      StartDate: PropTypes.string,
       Id: PropTypes.string,
-      Ucl: PropTypes.number,
-      Kings: PropTypes.number,
+      Ucl: PropTypes.string,
+      Kings: PropTypes.string,
     })
   ),
 };

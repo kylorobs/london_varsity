@@ -15,20 +15,21 @@ function App() {
 
   useEffect(() => {
     windowSize.addEventListener('change', (e) => {
-      console.log('CHANGING SIZE');
-      console.log(e.matches);
       setIsDesktop(e.matches);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { kings, ucl } = scoreTally;
+
+  const target = process.env.REACT_APP_TARGET || Math.floor(events.length / 2);
+
   return (
     <div data-theme="kclsu">
       <Hero />
       <TextContainer>
         <h2 className="text-center"> Results and Upcoming Matches</h2>
-        <Progress kingsScore={kings} uclScore={ucl} target={19} />
+        <Progress kingsScore={+kings} uclScore={+ucl} target={+target} />
         <div className="flex w-full mt-16">
           {isDesktop && <Upcoming isDesktop={isDesktop} events={events} />}
           <Tables isDesktop={isDesktop} events={events} results={results} />
