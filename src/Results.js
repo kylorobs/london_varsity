@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 const Results = ({ results }) => {
   let rows = (
     <tr>
-      <td> - </td>
-      <td> - </td>
-      <td> - </td>
-      <td> - </td>
+      <td className="text-white"> - </td>
+      <td className="text-white"> - </td>
+      <td className="text-white"> - </td>
+      <td className="text-white"> - </td>
     </tr>
   );
 
