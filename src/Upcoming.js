@@ -28,22 +28,37 @@ const Upcoming = ({ isDesktop, events = [] }) => {
     const filtered =
       !searchTerm || searchTerm === ''
         ? events
-        : events.filter((obj) => obj.Title.includes(searchTerm));
+        : events.filter((obj) =>
+            obj.Title.toLowerCase().includes(searchTerm.toLowerCase())
+          );
 
-    evts = filtered.map((evt) => (
-      <ScrollIntoView key={evt.Id}>
-        <label-card
-          cardtitle={evt.Title}
-          withleftborder={false}
-          // boxshadow="rgb(225 37 27 / 53%) 3px 3px 1px 0px"
-          image={evt.ImageUrl}
-          link={evt.Url}
-          text={getDateTime(evt.StartDate)}
-          margin="15px 0"
-          cardheight={isDesktop ? '130px' : 'auto'}
-        />
-      </ScrollIntoView>
-    ));
+    evts = filtered.map((evt) => {
+      if (searchTerm)
+        return (
+          <label-card
+            cardtitle={evt.Title}
+            withleftborder={false}
+            image={evt.ImageUrl}
+            link={evt.Url}
+            text={getDateTime(evt.StartDate)}
+            margin="15px 0"
+            cardheight={isDesktop ? '130px' : 'auto'}
+          />
+        );
+      return (
+        <ScrollIntoView key={evt.Id}>
+          <label-card
+            cardtitle={evt.Title}
+            withleftborder={false}
+            image={evt.ImageUrl}
+            link={evt.Url}
+            text={getDateTime(evt.StartDate)}
+            margin="15px 0"
+            cardheight={isDesktop ? '130px' : 'auto'}
+          />
+        </ScrollIntoView>
+      );
+    });
   }
 
   return (
