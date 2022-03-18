@@ -37,7 +37,7 @@ const Progress = ({ kingsScore, uclScore, target }) => {
       <ScrollIntoView>
         <div className="w-100 mb-4 flex content-center h-24">
           <div className="shadow stats w-40 md:w-40 mr-2">
-            <div className="stat">
+            <div className="stat overflow-hidden">
               <div className="stat-title text-ucl font-bold text-center">
                 UCL
               </div>
