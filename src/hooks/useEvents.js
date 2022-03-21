@@ -8,8 +8,11 @@ const useEvents = () => {
   useEffect(() => {
     if (events.length > 0) return;
     setLoading(true);
+    const today = new Date();
     fetch(
-      `https://www.kclsu.org/svc/feeds/events/6013?subtree=true&types=varsity`
+      `https://www.kclsu.org/svc/feeds/events/6013?subtree=true&types=varsity&from=${today.getFullYear()}-${
+        today.getMonth() + 1
+      }-${today.getDate()}`
     )
       .then((res) => {
         if (!res.ok) setError(true);

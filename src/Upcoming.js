@@ -61,6 +61,13 @@ const Upcoming = ({ isDesktop, events = [] }) => {
     });
   }
 
+  if (events.length < 1)
+    evts = (
+      <p style={{ 'text-align': 'center' }}>
+        There are no more upcoming games.
+      </p>
+    );
+
   return (
     <div className="flex flex-col justify-start w-full">
       <div
