@@ -32,7 +32,7 @@ const useResults = () => {
   }
 
   function sortByDate(ar) {
-    return ar.sort((a, b) => new Date(a.StartDate) - new Date(b.StartDate));
+    return ar.sort((a, b) => new Date(b.StartDate) - new Date(a.StartDate));
   }
 
   useEffect(() => {
